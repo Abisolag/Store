@@ -1,0 +1,22 @@
+{% extends "core/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="content-section clean">
+  <div class="media ff">
+    <img class="rounded-circle account-img sty image" src="{{ user.profile.image.url }}">
+    <div class="media-body">
+      <h2 class="account-heading">My Profile</h2>
+      <h3 class="text-dark">{{user.username}}</h3>
+      <h3 class="text-dark">{{user.first_name}} <span class="text-dark">
+        {{user.last_name}}
+      </span></h3>
+      <h4 class="text-dark">{{user.email}}</h4>
+      <small>{{user.profile.address}}</small>
+    </div>
+  </div>
+  <div class="dis">
+    <button class="btn"><a href="{% url 'profile_update' %}"> Click to Update Your Profile</a></button>
+    <button class="btn"><a href="{% url 'password_change' %}"> Click Here to Change Your Password</a></button>
+  </div>
+</div>
+{% endblock %}
